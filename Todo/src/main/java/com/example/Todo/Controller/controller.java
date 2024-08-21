@@ -24,23 +24,9 @@ public class controller {
         return service.getAllTodos();
     }
     @PutMapping("/update/{id}")
-    public todo updateTodoStatus(@PathVariable Long id) {
-        return service.updateTodoStatus(id);
-    }
-    @PutMapping("/updatetofalse/{id}")
-    public todo updatetofalse(@PathVariable Long id) {
-        return service.updatetofalse(id);
+    public todo update(@PathVariable Long id, @RequestParam Boolean completed) {
+        return service.updateTodoStatus(id , completed);
     }
 
 
-
-    @PutMapping("/updatedescription/{id}")
-    public todo updatedescription(@PathVariable Long id, @RequestBody todo todo){
-        return service.updatedescription(id , todo);
-    }
-    @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable Long id){
-        service.delete(id);
-        return "Todo of given id " + id + " has been deleted.";
-    }
 }
