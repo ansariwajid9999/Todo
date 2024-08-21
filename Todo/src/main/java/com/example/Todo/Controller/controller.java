@@ -23,13 +23,20 @@ public class controller {
     public List<todo> getAllTodos() {
         return service.getAllTodos();
     }
+    @PutMapping("/update/{id}")
+    public todo updateTodoStatus(@PathVariable Long id) {
+        return service.updateTodoStatus(id);
+    }
+    @PutMapping("/updatetofalse/{id}")
+    public todo updatetofalse(@PathVariable Long id) {
+        return service.updatetofalse(id);
+    }
+
+
+
     @PutMapping("/updatedescription/{id}")
     public todo updatedescription(@PathVariable Long id, @RequestBody todo todo){
         return service.updatedescription(id , todo);
-    }
-    @PutMapping("/update/{id}")
-    public todo updateTodoStatus(@PathVariable Long id, @RequestParam boolean completed) {
-        return service.updateTodoStatus(id, completed);
     }
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Long id){
