@@ -27,6 +27,17 @@ async function loadToDos() {
             </tr>
             `;
         });
+//        list.innerHTML = ''; // Clear the list before adding new items
+//        todos.forEach(todo => {
+//            list.innerHTML += `
+//            <li class="${todo.status ? 'comp': 'in'}">
+//                <span>${todo.description}</span>
+//                <input type="checkbox" onclick="markAsComplete(${todo.id})" id="${todo.id}" ${todo.completed ? 'checked disabled' : ''} />
+//                <label for="${todo.id}">${todo.completed ? "Completed" : "Mark as Completed"}</label>
+//            </li>
+//            `;
+//        });
+
     } catch (error) {
         console.error('Error loading todos:', error);
     }
@@ -50,5 +61,19 @@ function renderToDos(todos) {
     </tr>`
     });
 }
+//function renderToDos(todos) {
+//    const list = document.getElementById('todo-list');
+//    list.innerHTML = '';  // Clear the list before adding new items
+//    todos.forEach(todo => {
+//        list.innerHTML += `
+//        <li>
+//            <span>${todo.description}</span>
+//            <span>${todo.id}</span>
+//            <div>Spec</div>
+//        </li>
+//        `;
+//    });
+//}
+
 
 loadToDos()
